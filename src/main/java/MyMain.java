@@ -22,9 +22,19 @@ public class MyMain {
     // Examples:
     // arithmeticSequence(4) => 9
     // arithmeticSequence(1) => 3
+
     public static int arithmeticSequence(int n) {
         // YOUR CODE HERE
-        return -1;
+        if(n==1){
+            return 3;
+        }
+        //to find the 4rth number in the sequence, find the 3rd number
+        // in the sequence and add 2, do find the 3rd number in the sequence, find
+        // the second number in the sequence and add 2
+        else{
+            return 2 + arithmeticSequence(n-1);
+        }
+
     }
 
     // Write a method that uses recursion to count the number
@@ -37,7 +47,18 @@ public class MyMain {
     // Hint 2: multiple recursive cases might be helpful!
     public static int countX(String str) {
         // YOUR CODE HERE
-        return -1;
+        //no string == no x's
+        if(str.length() == 0){
+            return 0;
+        }
+        //first letter is x=> + count rest of x's
+        else if (str.charAt(0) == 'x'){
+            return 1+countX(str.substring(1));
+        }
+        // first
+        else{
+            return countX(str.substring(1));
+        }
     }
 
 
@@ -53,7 +74,17 @@ public class MyMain {
     // exponent(4, 0) = 1
     public static int exponent(int base, int power) {
         // YOUR CODE HERE
-        return -1;
+        if(power == 0){
+            return 1;
+        }
+        //recursive call
+        else if(power>0){
+            return base*exponent(base, power-1);
+        }
+        //base case
+        else{
+            return base;
+        }
     }
 
     // Write a method that uses recursion to count the number
@@ -63,7 +94,16 @@ public class MyMain {
     // countHi("hellohihi") => 2
     public static int countHi(String str) {
         // YOUR CODE HERE
-        return -1;
+        if(str.length()<2){
+            return 0;
+        }
+        else if(str.substring(0,2).equals("hi")){
+            return 1+countHi(str.substring(2,str.length()));
+        }
+        else{
+            return countHi(str.substring(1,str.length()));
+        }
+
     }
 
 
